@@ -65,13 +65,10 @@ void carregarDados(Aluno alunos[], int *total) {
   FILE *file = fopen(ARQUIVO, "r");
   if (!file) {
       printf("\nARQUIVO NÃO ENCONTRADO. CRIANDO UM NOVO...\n");
-      file = fopen(ARQUIVO, "w"); 
-      if (!file) {
-          printf("\nERRO AO CRIAR O ARQUIVO.\n");
           return;
-      }
   }
   fclose(file);
+}
   
     while(fscanf(file, "%d", &alunos[*total].matricula) != EOF) {
         fscanf(file, " %49[^\n]", alunos[*total].nome);
